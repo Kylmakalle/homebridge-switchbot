@@ -511,7 +511,7 @@ export class Bot extends deviceBase {
         this.debugLog(`Bot Mode: ${this.botMode}`)
         if (this.botMode === 'press') {
           switchBotBLE
-            .discover({ model: this.device.bleModel, quick: true, id: this.device.bleMac })
+            .discover({ duration: 10000, model: this.device.bleModel, quick: true, id: this.device.bleMac })
             .then(async (device_list: SwitchbotDevice[]) => {
               const deviceList = device_list as WoHand[]
               this.infoLog(`On: ${this.On}`)
@@ -533,7 +533,7 @@ export class Bot extends deviceBase {
             })
         } else if (this.botMode === 'switch') {
           switchBotBLE
-            .discover({ model: this.device.bleModel, quick: true, id: this.device.bleMac })
+            .discover({ duration: 10000, model: this.device.bleModel, quick: true, id: this.device.bleMac })
             .then(async (device_list: SwitchbotDevice[]) => {
               const deviceList = device_list as WoHand[]
               this.infoLog(`On: ${this.On}`)
